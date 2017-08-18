@@ -21,7 +21,7 @@ void AddConvar( std::string name, int initialValue );
 class CCommandsMod : public CMod
 {
 public:
-	CCommandsMod() : CMod( "Commands" ) {}
+	CCommandsMod() : CMod( "Command Mod" ) {}
 private:
 	void Main() override;
 	void Think() override;
