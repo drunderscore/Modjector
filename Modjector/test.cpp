@@ -1,6 +1,5 @@
 #include "common.h"
 #include "test.h"
-#include "main.h"
 
 void CTestMod::Main()
 {

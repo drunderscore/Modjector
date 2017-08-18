@@ -1,6 +1,5 @@
 #pragma once
 #include "common.h"
-#include "main.h"
 
 class CMod
 {
