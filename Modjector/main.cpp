@@ -13,6 +13,7 @@ void AddMods()
 {
 	// TODO: Create a better way to add mods. This is good enough for now.
 	pMods.push_back( new CCommandsMod() );
+	pMods.push_back( new CMemoryMod() );
 }
 
 void __stdcall main()

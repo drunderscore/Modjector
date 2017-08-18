@@ -22,6 +22,9 @@
     <Filter Include="Mods\Commands">
       <UniqueIdentifier>{d0f68757-3832-474a-8d65-7a522ab95173}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Mods\Memory">
+      <UniqueIdentifier>{0290d05b-b540-4ad9-a271-a8292b62d89c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="test.h">
@@ -42,6 +45,12 @@
     <ClInclude Include="command_list.h">
       <Filter>Mods\Commands</Filter>
     </ClInclude>
+    <ClInclude Include="memory.h">
+      <Filter>Mods\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="mods.h">
+      <Filter>Mods</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="test.cpp">
@@ -58,6 +67,9 @@
     </ClCompile>
     <ClCompile Include="command_list.cpp">
       <Filter>Mods\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="memory.cpp">
+      <Filter>Mods\Memory</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
