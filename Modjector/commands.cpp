@@ -32,7 +32,8 @@ bool RunCommand( std::string cmd, std::vector<std::string> args )
 {
 	if( commands.find( cmd ) == commands.end() )
 		return false;
-	return commands[cmd]( args );
+	commands[cmd]( args );
+	return true;
 }
 
 std::vector<std::string> Split( std::string str, std::string sep )
