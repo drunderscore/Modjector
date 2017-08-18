@@ -19,6 +19,9 @@
     <Filter Include="Mods\Test">
       <UniqueIdentifier>{4399581d-b594-452d-a7d7-d903a76dc956}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Mods\Commands">
+      <UniqueIdentifier>{d0f68757-3832-474a-8d65-7a522ab95173}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="test.h">
@@ -33,6 +36,12 @@
     <ClInclude Include="main.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="commands.h">
+      <Filter>Mods\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="command_list.h">
+      <Filter>Mods\Commands</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="test.cpp">
@@ -43,6 +52,12 @@
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="commands.cpp">
+      <Filter>Mods\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="command_list.cpp">
+      <Filter>Mods\Commands</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

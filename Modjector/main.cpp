@@ -1,6 +1,6 @@
 #include "common.h"
 #include "mod.h"
-#include "test.h"
+#include "commands.h"
 
 std::vector<CMod*> pMods = std::vector<CMod*>();
 FILE *pConsoleFile;
@@ -12,6 +12,7 @@ FILE *GetConsoleInput() { return pConsoleFileIn; }
 void AddMods()
 {
 	// TODO: Create a better way to add mods. This is good enough for now.
+	pMods.push_back( new CCommandsMod() );
 }
 
 void __stdcall main()
