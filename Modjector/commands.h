@@ -10,7 +10,7 @@ struct Convar
 	int defaultValue;
 };
 
-typedef bool( *CmdPtr )(std::vector<std::string>);
+typedef void( *CmdPtr )(std::vector<std::string>);
 std::map<std::string, CmdPtr> GetCommands();
 std::map<std::string, Convar> GetConvars();
 

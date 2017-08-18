@@ -1,6 +1,6 @@
 #include "common.h"
 #include "mod.h"
-#include "commands.h"
+#include "mods.h"
 
 std::vector<CMod*> pMods = std::vector<CMod*>();
 FILE *pConsoleFile;
