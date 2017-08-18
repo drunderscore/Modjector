@@ -49,6 +49,15 @@ std::vector<std::string> Split( std::string str, std::string sep )
 	return arr;
 }
 
+std::string Trim( std::string& str )
+{
+	size_t first = str.find_first_not_of( ' ' );
+	if( first == std::string::npos )
+		return "";
+	size_t last = str.find_last_not_of( ' ' );
+	return str.substr( first, (last - first + 1) );
+}
+
 void CCommandsMod::Main()
 {
 	RegisterConsoleCommands();
@@ -58,7 +67,7 @@ void CCommandsMod::Think()
 {
 	std::string line;
 	std::getline( std::cin, line );
-	if( line.empty() )
+	if( Trim( line ).empty() )
 		return;
 	std::vector<std::string> args = Split( line, " " );
 	bool ret = RunCommand( args[0], args );
