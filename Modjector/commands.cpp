@@ -19,6 +19,18 @@ void AddCommand( std::string cmd, CmdPtr func )
 	commands[cmd] = func;
 }
 
+bool ConvarExists( std::string name )
+{
+	return convars.find( name ) != convars.end();
+}
+
+int GetConvarValue( std::string name )
+{
+	if( !ConvarExists( name ) )
+		throw std::invalid_argument( "Invalid convar name" );
+	return convars[name].value;
+}
+
 void AddConvar( std::string name, int initialValue )
 {
 	Convar cvar;
@@ -73,7 +85,7 @@ void CCommandsMod::Think()
 	bool ret = RunCommand( args[0], args );
 	if( !ret )
 	{
-		if( convars.find( args[0] ) == convars.end() )
+		if( !ConvarExists( args[0] ) )
 			fprintf( GetConsoleOutput(), "Unknown command \"%s\"\n", args[0].c_str() );
 		else
 		{
