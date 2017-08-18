@@ -17,6 +17,8 @@ std::map<std::string, Convar> GetConvars();
 void AddCommand( std::string cmd, CmdPtr func );
 bool RunCommand( std::string cmd, std::vector<std::string> args );
 void AddConvar( std::string name, int initialValue );
+int GetConvarValue( std::string name );
+bool ConvarExists( std::string name );
 
 class CCommandsMod : public CMod
 {
