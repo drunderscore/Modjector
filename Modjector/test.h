@@ -6,6 +6,7 @@ class CTestMod : public CMod
 {
 public:
 	CTestMod() : CMod( "Test Mod" ) {}
+private:
 	void Main() override;
 	void Think() override;
 };
