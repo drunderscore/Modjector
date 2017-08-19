@@ -37,8 +37,4 @@ void RegisterConsoleCommands()
 	AddCommand( "clear", ClearCommand );
 
 	// Convars
-	AddConvar( "test_mod_class", "CTestMod" );
-	AddConvar( "some_other_data", "20" );
-	AddConvar( "some_float_value", "3.14159" );
-	AddConvar( "lol_player_baseaddress", "0xdeadbeef" );
 }
