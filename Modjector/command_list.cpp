@@ -8,11 +8,11 @@ void ListCommand( std::vector<std::string> args )
 	fprintf( GetConsoleOutput(), "There are %d commands and %d convars available.\n", GetCommands().size(), GetConvars().size() );
 	for( const auto &myPair : GetCommands() )
 		fprintf( GetConsoleOutput(), "%s\n", myPair.first.c_str() );
-	for( const auto &myPair : GetConvars() )
-		if( myPair.second.value == myPair.second.defaultValue )
-			fprintf( GetConsoleOutput(), "\"%s\" = \"%d\"\n", myPair.first.c_str(), myPair.second.value );
+	for( auto &myPair : GetConvars() )
+		if( myPair.second.GetValue().compare( myPair.second.GetDefaultValue() ) == 0 )
+			fprintf( GetConsoleOutput(), "\"%s\" = \"%s\"\n", myPair.first.c_str(), myPair.second.GetValue().c_str() );
 		else
-			fprintf( GetConsoleOutput(), "\"%s\" = \"%d\" (def. \"%d\")\n", myPair.first.c_str(), myPair.second.value, myPair.second.defaultValue );
+			fprintf( GetConsoleOutput(), "\"%s\" = \"%s\" (def. \"%s\")\n", myPair.first.c_str(), myPair.second.GetValue().c_str(), myPair.second.GetDefaultValue().c_str() );
 	return;
 }
 
@@ -37,7 +37,4 @@ void RegisterConsoleCommands()
 	AddCommand( "clear", ClearCommand );
 
 	// Convars
-	// AddConvar( "test", 2 );
-	// AddConvar( "something", 20 );
-	// AddConvar( "some_other_thing", 1337 );
 }

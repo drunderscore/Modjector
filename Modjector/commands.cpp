@@ -1,15 +1,16 @@
 #include "common.h"
 #include "commands.h"
 #include "command_list.h"
+
 std::map<std::string, CmdPtr> commands;
-std::map<std::string, Convar> convars;
+std::map<std::string, CConvar> convars;
 
 std::map<std::string, CmdPtr> GetCommands()
 {
 	return commands;
 }
 
-std::map<std::string, Convar> GetConvars()
+std::map<std::string, CConvar> GetConvars()
 {
 	return convars;
 }
@@ -24,20 +25,9 @@ bool ConvarExists( std::string name )
 	return convars.find( name ) != convars.end();
 }
 
-int GetConvarValue( std::string name )
+void AddConvar( std::string name, std::string defValue )
 {
-	if( !ConvarExists( name ) )
-		throw std::invalid_argument( "Invalid convar name" );
-	return convars[name].value;
-}
-
-void AddConvar( std::string name, int initialValue )
-{
-	Convar cvar;
-	cvar.name = name;
-	cvar.defaultValue = initialValue;
-	cvar.value = initialValue;
-	convars[name] = cvar;
+	convars[name] = CConvar( name, defValue );
 }
 
 bool RunCommand( std::string cmd, std::vector<std::string> args )
@@ -90,14 +80,21 @@ void CCommandsMod::Think()
 			fprintf( GetConsoleOutput(), "Unknown command \"%s\"\n", args[0].c_str() );
 		else
 		{
-			Convar cvar = convars[args[0]];
+			CConvar cvar = convars[args[0]];
 			if( args.size() >= 2 )
-				convars[args[0]].value = atoi( args[1].c_str() );
+			{
+				std::string newVal = std::string();
+				for( int i = 1; i < args.size(); i++ )
+				{
+					newVal += args[i] + " ";
+				}
+				convars[args[0]].SetValue( Trim( newVal ) );
+			}
 			else
-				if( cvar.value == cvar.defaultValue )
-					fprintf( GetConsoleOutput(), "\"%s\" = \"%d\"\n", args[0].c_str(), cvar.value );
+				if( cvar.GetValue().compare( cvar.GetDefaultValue() ) == 0 )
+					fprintf( GetConsoleOutput(), "\"%s\" = \"%s\"\n", cvar.GetName().c_str(), cvar.GetValue().c_str() );
 				else
-					fprintf( GetConsoleOutput(), "\"%s\" = \"%d\" (def. \"%d\")\n", args[0].c_str(), cvar.value, cvar.defaultValue );
+					fprintf( GetConsoleOutput(), "\"%s\" = \"%s\" (def. \"%s\")\n", args[0].c_str(), cvar.GetValue().c_str(), cvar.GetDefaultValue().c_str() );
 		}
 	}
 }

@@ -1,23 +1,16 @@
 #pragma once
 #include "common.h"
 #include "mod.h"
+#include "convar.h"
 #include <map>
-
-struct Convar
-{
-	std::string name;
-	int value;
-	int defaultValue;
-};
 
 typedef void( *CmdPtr )(std::vector<std::string>);
 std::map<std::string, CmdPtr> GetCommands();
-std::map<std::string, Convar> GetConvars();
+std::map<std::string, CConvar> GetConvars();
 
 void AddCommand( std::string cmd, CmdPtr func );
 bool RunCommand( std::string cmd, std::vector<std::string> args );
-void AddConvar( std::string name, int initialValue );
-int GetConvarValue( std::string name );
+void AddConvar( std::string name, std::string initialValue );
 bool ConvarExists( std::string name );
 
 class CCommandsMod : public CMod
