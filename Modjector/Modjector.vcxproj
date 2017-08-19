@@ -129,6 +129,7 @@
     <ClInclude Include="commands.h" />
     <ClInclude Include="command_list.h" />
     <ClInclude Include="common.h" />
+    <ClInclude Include="convar.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="mod.h" />
     <ClInclude Include="test.h" />

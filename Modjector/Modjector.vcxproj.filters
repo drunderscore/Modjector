@@ -42,6 +42,9 @@
     <ClInclude Include="command_list.h">
       <Filter>Mods\Commands</Filter>
     </ClInclude>
+    <ClInclude Include="convar.h">
+      <Filter>Mods\Commands</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="test.cpp">
