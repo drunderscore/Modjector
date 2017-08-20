@@ -30,11 +30,16 @@ void ClearCommand( std::vector<std::string> args )
 	return;
 }
 
+void ExitCommand( std::vector<std::string> args )
+{
+	exit( 0 );
+}
+
 void RegisterConsoleCommands()
 {
 	// Commands
 	AddCommand( "list", ListCommand );
 	AddCommand( "clear", ClearCommand );
-
+	AddCommand( "exit", ExitCommand ); // I kept doing this in the console so fuck it I'll add it.
 	// Convars
 }
