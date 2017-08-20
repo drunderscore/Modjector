@@ -110,41 +110,41 @@ void ReadMemoryOffsetCommand( std::vector<std::string> args )
 		{
 			byte val = ReadOffset<byte>( addr + otherOffset );
 			if( outputHex )
-				fprintf( GetConsoleOutput(), "(%s) Value in (%x + %x) + %s is %x\n", type.c_str(), (int)GetModuleHandleA( NULL ), otherOffset, args[1].c_str(), val );
+				fprintf( GetConsoleOutput(), "(%s) Value in (0x%x + 0x%x) + %s is %x\n", type.c_str(), (int)GetModuleHandleA( NULL ), otherOffset, args[1].c_str(), val );
 			else
-				fprintf( GetConsoleOutput(), "(%s) Value in (%x + %x) + %s is %d\n", type.c_str(), (int)GetModuleHandleA( NULL ), otherOffset, args[1].c_str(), val );
+				fprintf( GetConsoleOutput(), "(%s) Value in (0x%x + 0x%x) + %s is %d\n", type.c_str(), (int)GetModuleHandleA( NULL ), otherOffset, args[1].c_str(), val );
 		}
 		else if( type.compare( "int" ) == 0 )
 		{
 			int val = ReadOffset<int>( addr + otherOffset );
 			if( outputHex )
-				fprintf( GetConsoleOutput(), "(%s) Value in (%x + %x) + %s is %x\n", type.c_str(), (int)GetModuleHandleA( NULL ), otherOffset, args[1].c_str(), val );
+				fprintf( GetConsoleOutput(), "(%s) Value in (0x%x + 0x%x) + %s is %x\n", type.c_str(), (int)GetModuleHandleA( NULL ), otherOffset, args[1].c_str(), val );
 			else
-				fprintf( GetConsoleOutput(), "(%s) Value in (%x + %x) + %s is %d\n", type.c_str(), (int)GetModuleHandleA( NULL ), otherOffset, args[1].c_str(), val );
+				fprintf( GetConsoleOutput(), "(%s) Value in (0x%x + 0x%x) + %s is %d\n", type.c_str(), (int)GetModuleHandleA( NULL ), otherOffset, args[1].c_str(), val );
 		}
 		else if( type.compare( "uint" ) == 0 )
 		{
 			UINT val = ReadOffset<UINT>( addr + otherOffset );
 			if( outputHex )
-				fprintf( GetConsoleOutput(), "(%s) Value in (%x + %x) + %s is %x\n", type.c_str(), (int)GetModuleHandleA( NULL ), otherOffset, args[1].c_str(), val );
+				fprintf( GetConsoleOutput(), "(%s) Value in (0x%x + 0x%x) + %s is %x\n", type.c_str(), (int)GetModuleHandleA( NULL ), otherOffset, args[1].c_str(), val );
 			else
-				fprintf( GetConsoleOutput(), "(%s) Value in (%x + %x) + %s is %d\n", type.c_str(), (int)GetModuleHandleA( NULL ), otherOffset, args[1].c_str(), val );
+				fprintf( GetConsoleOutput(), "(%s) Value in (0x%x + 0x%x) + %s is %d\n", type.c_str(), (int)GetModuleHandleA( NULL ), otherOffset, args[1].c_str(), val );
 		}
 		else if( type.compare( "float" ) == 0 )
 		{
 			float val = ReadOffset<float>( addr + otherOffset );
-			fprintf( GetConsoleOutput(), "(%s) Value in (%x + %x) + %s is %f\n", type.c_str(), (int)GetModuleHandleA( NULL ), otherOffset, args[1].c_str(), val );
+			fprintf( GetConsoleOutput(), "(%s) Value in (0x%x + 0x%x) + %s is %f\n", type.c_str(), (int)GetModuleHandleA( NULL ), otherOffset, args[1].c_str(), val );
 		}
 		else if( type.compare( "double" ) == 0 )
 		{
 			double val = ReadOffset<double>( addr + otherOffset );
-			fprintf( GetConsoleOutput(), "(%s) Value in (%x + %x) + %s is %f\n", type.c_str(), (int)GetModuleHandleA( NULL ), otherOffset, args[1].c_str(), val );
+			fprintf( GetConsoleOutput(), "(%s) Value in (0x%x + 0x%x) + %s is %f\n", type.c_str(), (int)GetModuleHandleA( NULL ), otherOffset, args[1].c_str(), val );
 		}
 		else if( type.compare( "string" ) == 0 )
 		{
 			char val[2048];
 			ReadProcessMemory( GetCurrentProcess(), GetModuleHandleA( NULL ) + addr + otherOffset, &val, 2048, NULL );
-			fprintf( GetConsoleOutput(), "(%s) Value in (%x + %x) + %s is %s\n", type.c_str(), (int)GetModuleHandleA( NULL ), otherOffset, args[1].c_str(), val );
+			fprintf( GetConsoleOutput(), "(%s) Value in (0x%x + 0x%x) + %s is %s\n", type.c_str(), (int)GetModuleHandleA( NULL ), otherOffset, args[1].c_str(), val );
 		}
 	}
 	catch( std::invalid_argument )
