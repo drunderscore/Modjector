@@ -161,7 +161,7 @@ void CMemoryMod::Main()
 	// TOOD: This is register AFTER the Commands mod is registers. Not a huge problem, but perferably have this not happen.
 	AddConvar( "mem_offset_address", "0" );
 	AddCommand( "mem_read", ReadMemoryCommand );
-	AddCommand( "mem_read_offset", ReadMemoryCommand );
+	AddCommand( "mem_read_offset", ReadMemoryOffsetCommand );
 }
 
 void CMemoryMod::Think()
