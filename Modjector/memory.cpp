@@ -13,7 +13,7 @@ T ReadMemory( int addr )
 template<typename T>
 T ReadOffset( int offset )
 {
-	return ReadMemory<T>( GetModuleHandleA( NULL ) + offset );
+	return ReadMemory<T>( (int)GetModuleHandleA( NULL ) + offset );
 }
 
 void ReadMemoryCommand( std::vector<std::string> args )
@@ -157,7 +157,7 @@ void ReadMemoryOffsetCommand( std::vector<std::string> args )
 
 void CMemoryMod::Main()
 {
-	fprintf( GetConsoleOutput(), "The PID of this process is %d. The base address for this proecss is %x\n", (int)GetCurrentProcessId(), GetModuleHandleA( NULL ) );
+	fprintf( GetConsoleOutput(), "The PID of this process is %d. The base address for this proecss is %x\n", (int)GetCurrentProcessId(), (int)GetModuleHandleA( NULL ) );
 	// TOOD: This is register AFTER the Commands mod is registers. Not a huge problem, but perferably have this not happen.
 	AddConvar( "mem_offset_address", "0" );
 	AddCommand( "mem_read", ReadMemoryCommand );
